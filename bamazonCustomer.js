@@ -95,6 +95,7 @@ function promptUserPurchase() {
                 // Assures user that their order went through
                 if (quantity <= productData.stock_quantity) {
                     console.log('Congratulations, the product you requested is in stock! Placing order!');
+                    console.log("---------------------------------------------------------------------------------\n")
                     //Updates your stock quantity
                     var updateQueryStr = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity - quantity) + ' WHERE item_id = ' + item;
                     
