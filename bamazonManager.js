@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
     password: "wyatt123",
     database: "bamazon"
 });
-// alerts user of their ID when connected to SQL and calls managerAction function
+
 connection.connect(function (err) {
     if (err) throw err;
     console.log("connected as id " + connection.threadId);
@@ -20,8 +20,6 @@ connection.connect(function (err) {
 });
 
 function managerAction() {
-    // console.log('___ENTER promptManagerAction___');
-
     // Prompt the manager to select an option
     inquirer.prompt([
         {
@@ -46,8 +44,6 @@ function managerAction() {
             }
         }
     ]).then(function (input) {
-        // console.log('User has selected: ' + JSON.stringify(input));
-
         // Trigger the appropriate action based on the user input
         if (input.option === 'sale') {
             displayInventory();
@@ -66,8 +62,6 @@ function managerAction() {
 }
 
 function displayInventory() {
-    // console.log('___ENTER displayInventory___');
-
     // Construct the db query string
     queryStr = 'SELECT * FROM products';
 
@@ -190,7 +184,6 @@ function addInventory() {
 
                 // Construct the updating query string
                 var updateQueryStr = 'UPDATE products SET stock_quantity = ' + (productData.stock_quantity + addQuantity) + ' WHERE item_id = ' + item;
-                // console.log('updateQueryStr = ' + updateQueryStr);
 
                 // Update the inventory
                 connection.query(updateQueryStr, function (err, data) {
@@ -207,10 +200,7 @@ function addInventory() {
     });
 }
 
-// createNewProduct will guide the user in adding a new product to the inventory
 function createNewProduct() {
-    // console.log('___ENTER createNewProduct___');
-
     // Prompt the user to enter information about the new product
     inquirer.prompt([
         {
@@ -236,7 +226,6 @@ function createNewProduct() {
             validate: validateInteger
         }
     ]).then(function (input) {
-        // console.log('input: ' + JSON.stringify(input));
 
         console.log('Adding New Item: \n    product_name = ' + input.product_name + '\n' +
             '    department_name = ' + input.department_name + '\n' +
