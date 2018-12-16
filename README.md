@@ -6,4 +6,4 @@ The user will then be prompted to select an ID of the product they want, and the
 
 ##Bamazon Manager
 
-The manager application will give you a manager-like 
+The manager application will give you a manager-like abilities of "Bamazon"; view product list, view low inventory products uner 5, add stock to existing products, or even add new products to inventory! When ran the app will prompt you to arrow select which action you want to make. Then will guide you with prompts on how to continue.
